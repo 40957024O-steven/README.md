@@ -1,14 +1,5 @@
-import csv
-from openpyxl import Workbook, load_workbook
+import pandas as pd
 
-wb = Workbook()
-ws = wb.active
-
-with open('C:/Users/steve/Downloads/relatedQueries.csv',encoding="utf-8",newline='') as csvfile:
-
-    rows = csv.reader(csvfile,delimiter=';')
-
-    for row in rows:
-        ws.append(row)
-
-wb.save('123.xlsx')
+df = pd.read_csv("C:/Users/steven.LAPTOP-8A1BDJC6/OneDrive/桌面/程式課/README.md/text.csv",encoding='BIG5')
+print(df.describe)
+df[['日期','參加人數']]
