@@ -15,9 +15,9 @@
 # 目錄
 * [✍🏻課程筆記](https://github.com/40957024O-steven/README.md/blob/main/README.md#%E8%AA%B2%E7%A8%8B%E7%AD%86%E8%A8%98)
 
-* [📖作業連結]
+* [📖作業連結](https://github.com/40957024O-steven/README.md/edit/main/README.md#%E4%BD%9C%E6%A5%AD%E9%80%A3%E7%B5%90)
 
-* [🔜專題連結]
+* [🔜專題連結](https://github.com/40957024O-steven/README.md/edit/main/README.md#%E5%B0%88%E9%A1%8C%E9%80%A3%E7%B5%90)
 
 -----
 
