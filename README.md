@@ -13,18 +13,21 @@
 ----
 
 # 目錄
-✍🏻課程筆記
+* [✍🏻課程筆記](https://github.com/40957024O-steven/README.md/blob/main/README.md#%E8%AA%B2%E7%A8%8B%E7%AD%86%E8%A8%98)
 
-📖作業連結
+* [📖作業連結](https://github.com/40957024O-steven/README.md/edit/main/README.md#%E4%BD%9C%E6%A5%AD%E9%80%A3%E7%B5%90)
 
-🔜專題連結
+* [🔜專題連結](https://github.com/40957024O-steven/README.md/edit/main/README.md#%E5%B0%88%E9%A1%8C%E9%80%A3%E7%B5%90)
 
 -----
 
 ## ✍🏻課程筆記✍🏻
-
+### 第一週(2/22)
+Python Avaconda GitHub Vscode 下載
+### 第二週(3/1)
+pandas操作(groupby)
 ## 📖作業連結📖
-
+### [3/1](https://github.com/40957024O-steven/README.md/blob/main/%E5%85%AC%E5%8B%99%E4%BA%BA%E5%93%A1%E5%8F%83%E8%A8%93%E4%BA%BA%E6%95%B8.py)
 ## 🔜專題連結🔜
 
 

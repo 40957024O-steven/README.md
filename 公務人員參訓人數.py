@@ -31,3 +31,4 @@ plt.legend() #設定圖例
 plt.axis('equal') #使圓餅圖比例相等
 plt.title('公務人員參訓人數',loc= 'left') #設定標題
 plt.show() #顯示繪製的圖
+
