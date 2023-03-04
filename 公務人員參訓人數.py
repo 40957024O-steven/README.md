@@ -2,7 +2,7 @@ import pandas as pd #整理csv檔用
 import matplotlib.pyplot as plt #繪製視覺化數據用
 
 
-df = pd.read_csv("C:/Users/steve/Desktop/學校/大三下/學習分析工具實務應用/README.md/text.csv",encoding='BIG5') #以GIB5的conding方式讀取csv檔
+df = pd.read_csv("C:/Users/steven.LAPTOP-8A1BDJC6/OneDrive/桌面/程式課/README.md/text.csv",encoding='BIG5') #以GIB5的conding方式讀取csv檔
 # print(df)
 team = df[['類別','參加人數']] #選取出所需要的資料組
 # print(team)
@@ -17,7 +17,7 @@ tick = gb['類別'] #將'類別'設為繪圖的組別名稱
 
 
 plt.rcParams['font.sans-serif'] = [u'MingLiu'] #設定字體為'細明體'
-plt.rcParams['axes.unicode_minus'] = False #設定中文
+plt.rcParams['axes.unicode_minus'] = False #用來正常顯示正負號
 
 #繪製圓餅圖
 plt.pie(x, #數據
@@ -29,6 +29,6 @@ plt.pie(x, #數據
 
 plt.legend() #設定圖例
 plt.axis('equal') #使圓餅圖比例相等
-plt.title('公務人員參訓人數',loc= 'left') #設定標題
+plt.title('公務人員參訓人數',loc = 'left') #設定標題
 plt.show() #顯示繪製的圖
 
