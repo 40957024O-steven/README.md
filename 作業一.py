@@ -5,8 +5,6 @@ df = pd.read_csv(path,encoding='BIG5')
 # print(df)
 
 day = df.groupby(['日期'])['參加人數'].sum().reset_index()
-maxnb = 0
-minnb = 99999999999999999
 nb = 0
 for i in day['參加人數']:
         nb += 1
