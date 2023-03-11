@@ -27,7 +27,8 @@ Python Avaconda GitHub Vscode 下載
 ### 第二週(3/1)
 pandas操作(groupby)
 ## 📖作業連結📖
-3/1 [公務人員參訓人數.py](https://github.com/40957024O-steven/README.md/blob/main/%E5%85%AC%E5%8B%99%E4%BA%BA%E5%93%A1%E5%8F%83%E8%A8%93%E4%BA%BA%E6%95%B8.py)
+3/1 [公務人員參訓人數.py](https://github.com/40957024O-steven/README.md/blob/main/%E5%85%AC%E5%8B%99%E4%BA%BA%E5%93%A1%E5%8F%83%E8%A8%93%E4%BA%BA%E6%95%B8.py)     
+3/8 [作業一](https://github.com/40957024O-steven/NTNUclass/blob/main/%E4%BD%9C%E6%A5%AD%E4%B8%80.py)    
 ### 五大作業
 ## 🔜專題連結🔜
 
