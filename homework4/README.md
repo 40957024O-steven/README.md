@@ -1,4 +1,4 @@
 #作業4
 
-![對話照片]("C:\Users\steve\Desktop\學校\大三下\學習分析工具實務應用\README.md\homework4\作業4照片.png")
+[對話照片](https://github.com/40957024O-steven/NTNUclass/blob/main/homework4/%E4%BD%9C%E6%A5%AD4%E7%85%A7%E7%89%87.png)
 
