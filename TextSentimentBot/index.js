@@ -71,3 +71,9 @@ function handleEvent(event){
       console.error("Error:", err);
     }); 
 }
+
+
+
+// 開cmd 並在"C:\Users\steve\Downloads\ngrok-v3-stable-windows-amd64\ngrok.exe"的位置下 ngrok http 3000
+// 並複製http ip 到https://developers.line.biz/console/channel/1661035344/messaging-api 裡面的webhook settings ==> webhook URL改http(callback 不能去掉)
+// 執行與偵錯要開
