@@ -29,18 +29,25 @@ async function MS_TextSentimentAnalysis(thisEvent){
     const analyticsClient = new TextAnalyticsClient(endpoint, new AzureKeyCredential(apiKey));
     let documents = [];
     documents.push(thisEvent.message.text);
-    // documents.push("我覺得櫃檯人員很親切");
-    // documents.push("熱水都不熱，爛死了，很生氣！");
-    // documents.push("房間陳設一般般");
+
     const results = await analyticsClient.analyzeSentiment(documents);
     console.log("[results] ", JSON.stringify(results));
 
-    const echo = {
+    const sentiment = results[0].sentiment;
+    let echo;
+      if(sentiment === 'positive'){
+        echo = { type: 'text', text: '這是正向的訊息' };
+      } else if(sentiment === 'negative') {
+        echo = { type: 'text', text: '這是負向的訊息' };
+      } else {
+        echo = { type: 'text', text: '這是中性的訊息' };
+      }
+    const confi = {
       type: 'text',
-      text: results[0].sentiment
+      text: `正向分數: ${results[0].confidenceScores.positive.toFixed(2)}, 負向分數: ${results[0].confidenceScores.negative.toFixed(2)}, 中性分數: ${results[0].confidenceScores.neutral.toFixed(2)}`
     };
-    return client.replyMessage(thisEvent.replyToken, echo);
 
+      return client.replyMessage(thisEvent.replyToken, [echo,confi]);
 
 }
 
