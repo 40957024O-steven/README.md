@@ -1,6 +1,7 @@
 'use strict';
 const line = require('@line/bot-sdk'),
       express = require('express'),
+      axios = require('axios'),
       configGet = require('config');
 const {TextAnalyticsClient, AzureKeyCredential} = require("@azure/ai-text-analytics");
 
@@ -30,8 +31,33 @@ async function MS_TextSentimentAnalysis(thisEvent){
     let documents = [];
     documents.push(thisEvent.message.text);
 
-    const results = await analyticsClient.analyzeSentiment(documents);
+    const results = await analyticsClient.analyzeSentiment(documents,"zh-Hant",{
+      includeOpinionMining: true
+    });
     console.log("[results] ", JSON.stringify(results));
+    let newData = {
+      "sentiment": results[0].sentiment,
+      "confidenceScore": results[0].confidenceScores[results[0].sentiment],
+      "opinopnText": ""
+    };
+
+    if(results[0].sentences[0].opinions.length!=0){
+      newData.opinopnText = results[0].sentences[0].opinions[0].target.text;
+    }
+
+    let axios_add_data = {
+      method:"post",
+      url:"https://stevenwsp901007.azurewebsites.net/reviews",
+      headers:{
+        "content-type":"application/json"
+      },
+      data:newData
+    };
+    axios(axios_add_data)
+    .then(function(response){
+      console.log(JSON.stringify(response.data));
+    })
+    .catch(function(){console.log("error");});
 
     const sentiment = results[0].sentiment;
     let echo;
