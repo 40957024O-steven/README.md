@@ -2,5 +2,6 @@
 
 [程式碼](https://github.com/40957024O-steven/NTNUclass/blob/main/homework5/main.js)
 
-[對話照片](https://github.com/40957024O-steven/NTNUclass/blob/main/homework4/%E4%BD%9C%E6%A5%AD4%E7%85%A7%E7%89%87.png)
+[對話照片一](https://github.com/40957024O-steven/NTNUclass/blob/main/homework5/%E5%9C%96%E7%89%87%E4%B8%80.png)
 
+[對話照片二](https://github.com/40957024O-steven/NTNUclass/blob/main/homework5/%E5%9C%96%E7%89%87%E4%BA%8C.png)
