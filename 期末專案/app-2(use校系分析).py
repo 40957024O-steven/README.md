@@ -3,7 +3,7 @@ import tkinter as tk
 import tkinter.ttk as ttk
 from tkinter import scrolledtext
 import time 
-import glob
+from openpyxl import load_workbook
 import os
 # 功能：
 # 按下按鈕後將對話框的內容顯示到輸出螢幕上
@@ -16,26 +16,65 @@ root = tk.Tk()
 root.geometry("430x800")
 root.title("升學機器人")
 
-def school_name(country):
-    current_path = os.path.dirname(os.path.abspath(__file__))
-    folder_path = os.path.join(current_path,'rawdata/*.xlsx')
-    result = glob.glob(folder_path)
-    ans = []
-    if country[:2] == "國立" or country[:2] == '公立':
-        for f in result:
-            f = os.path.basename(f)
-            # print(f[:2])            
-            if f[:2] == '國立':
-                text_area.insert(tk.END,f[:f.index('.')]+"\n","tag_name")
-            
-    elif country[:2] == "私立":
-        for f in result:
-            f = os.path.basename(f)           
-            if f[:2] != '國立':
-                text_area.insert(tk.END,f[:f.index('.')]+"\n","tag_name")
-    else:
-        text_area.insert(tk.END,'您的輸入有誤，請再次輸入'+"\n","tag_name")
+path = os.path.join(os.getcwd(),'期末專案/112校系分則.xlsx')
+# print(path)
+wb = load_workbook(path)
+ws =  wb['112校系分則v1']
+rowmax = ws.max_row
+# print(rowmax)
 
+def Gors(gors):
+    if gors == "國立" or gors == '公立':
+        for i in range(3,rowmax+1):
+            schoolallname = ws.cell(i,3).value #學校名稱
+            # print(schoolallname)
+            gors = schoolallname[:2] #公私立
+            # print(gors)
+            if schoolallname != ws.cell(i-1,3).value:
+                if gors == '國立':
+                    text_area.insert(tk.END,schoolallname+"\n","tag_name")
+        text_area.insert(tk.END,'\n\n請問要查詢的學校?'+"\n","tag_name")  
+
+    elif gors == "私立":
+        for i in range(3,rowmax+1):
+            schoolallname = ws.cell(i,3).value #學校名稱
+            # print(schoolallname)
+            gors = schoolallname[:2] #公私立
+            # print(gors)
+            if schoolallname != ws.cell(i-1,3). value:      
+                if gors != '國立':
+                    text_area.insert(tk.END,schoolallname+"\n","tag_name")
+        text_area.insert(tk.END,'\n\n請問要查詢的學校?'+"\n","tag_name")
+ 
+def School(school):
+    chack = 0  
+    for i in range(3,rowmax+1):
+        gp = ws.cell(i,4).value.replace(' ','')
+        if school == str(ws.cell(i,3).value).replace(' ',''):
+            text_area.insert(tk.END,gp+"\n","tag_name")
+            serch[0] = school
+            chack += 1
+    if chack == 0:
+        text_area.insert(tk.END,"查無此學校\n","tag_name")
+    # print(serch)
+    
+serch = [[],[]] #所搜尋[[學校],[系所]]
+
+def Conversation(conversation):
+    if conversation == '國立' or conversation =='公立' or conversation =='私立':
+        Gors(conversation)      
+        # text_area.insert(tk.END,'公私立查詢'+"\n","tag_name")
+
+    elif conversation[-2:] == '大學':
+        School(conversation)
+        # text_area.insert(tk.END,'學校名稱查詢'+"\n","tag_name")
+    elif conversation[-1] == '系':
+        text_area.insert(tk.END,'系所查詢'+"\n","tag_name")
+    elif conversation == 'Del' or conversation =='del':
+        text_area.insert(tk.END,'刪除所查詢資料'+"\n","tag_name")
+    else:
+        text_area.insert(tk.END,'輸入錯誤,請重輸入'+"\n","tag_name")
+    print(conversation)
 # 輸出螢幕
 text_area = scrolledtext.ScrolledText(root, width=250, height=50)
 text_area.tag_config("tag_name", foreground="green")
@@ -46,15 +85,18 @@ text_area.pack()
 
 def handle_button_press():
     # 获取对话框的文本
-    t = enterwindow.get("1.0","end")
+    t = enterwindow.get("1.0","end").replace('\n','').replace(' ','')
+    # print(t)
     # 清空对话框的文本
     enterwindow.delete("1.0", tk.END)
     # 在输出框中添加文本
-    text_area.insert(tk.END, "\n您：\n{}\n".format(t))
+    text_area.insert(tk.END, "\n您：\n{}\n\n".format(t))
     # print(t)
     text_area.insert(tk.END,"機器人：\n","tag_name")   
     # print(t)     
-    school_name(t)
+    Conversation(t)
+
+
 
 # 對話框
 enterwindow = tk.Text(root, width=50, height=10)
