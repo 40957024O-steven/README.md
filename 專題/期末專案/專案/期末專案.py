@@ -1,7 +1,7 @@
 import pandas as pd
 import tkinter as tk
 import tkinter.ttk as ttk
-from tkinter import scrolledtext
+from tkinter import scrolledtext,font
 import time
 from openpyxl import load_workbook
 import os
@@ -115,6 +115,7 @@ def det(school, sci, lc):
         i += 1
         if i == 32:
             break
+    text_area.insert(tk.END,'\n')
 
 
 def Conversation(conversation):
@@ -125,20 +126,23 @@ def Conversation(conversation):
     elif conversation[-2:] == '大學':
         School(conversation)
         # text_area.insert(tk.END,'學校名稱查詢'+"\n","tag_name")
-    elif conversation[-1] == '系' or conversation[-1] == ')' or conversation[-1] == "組":
+    elif conversation[-1] == '系' or conversation[-1] == ')' or conversation[-1] == "組"or conversation[-1] == "班"or conversation[-1] == "程":
         Sci(conversation)
         # text_area.insert(tk.END,'系所查詢'+"\n","tag_name")
     else:
-        text_area.insert(tk.END, '輸入錯誤,請重輸入' + "\n", "tag_name")
+        text_area.insert(tk.END, '輸入錯誤,請重輸入' + "\n", "tag_title")
     print(conversation)
 
-
-
+custom_font_25 = font.Font(family="Arial", size=25)
+custom_font_20 = font.Font(family="Arial", size=20)
+custom_font_17 = font.Font(family="Arial", size=17)
 # 輸出螢幕
 text_area = scrolledtext.ScrolledText(root, width=screen_width, height=screen_height*0.9)
-text_area.tag_config("tag_name", foreground="green")
-text_area.tag_config("tag_title", foreground="red")
-text_area.tag_config("inf", foreground="black")
+text_area.tag_config("tag_name", foreground="green",font=custom_font_17)
+text_area.tag_config("tag_title", foreground="red",font=custom_font_20)
+text_area.tag_config("inf", foreground="black",font=custom_font_20)
+text_area.tag_config("cf", foreground="red",font=custom_font_25)
+text_area.insert(tk.END, "溫馨提醒：請開啟全螢幕\n", "cf")
 text_area.insert(tk.END, "機器人：\n請輸入以下指令進行互動\n您所要查詢的大學是國立(公立)OR私立?\n", "tag_name")
 
 text_area.pack()
@@ -160,15 +164,17 @@ def handle_button_press():
 
 
 # 對話框
-enter_width = screen_width*0.7
-enter_height = screen_height*0.7
+enter_width = screen_width-525
+enter_height = screen_height-320
 but_width = enter_width+440
-but_height = screen_height*0.7
+but_height = screen_height-320
 enterwindow = tk.Text(root, width=60, height=15,bd=4,relief='solid')
 enterwindow.place(x=enter_width,y=enter_height)
 enterwindow.configure(bg='floralwhite')
+
 # 輸入按鈕
 bt = tk.Button(root, text='輸入', width=8, height=4, command=handle_button_press)
 bt.place(x=but_width,y=but_height)
 
 root.mainloop()
+
