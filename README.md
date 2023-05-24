@@ -34,4 +34,5 @@ pandas操作(groupby)
 
 ## [🔜專題連結🔜](https://github.com/40957024O-steven/NTNUclass/tree/main/%E6%9C%9F%E6%9C%AB%E5%B0%88%E6%A1%88)
 
+[專題成品下載點](https://github.com/40957024O-steven/NTNUclass/blob/main/%E5%B0%88%E9%A1%8C.exe)
 
