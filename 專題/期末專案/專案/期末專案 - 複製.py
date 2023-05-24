@@ -7,13 +7,15 @@ from openpyxl import load_workbook
 import os
 
 
+
 button_pressed = False
 root = tk.Tk()
 
-root.geometry("430x800")
+
+root.geometry(str(root.winfo_screenwidth())+"x"+str(root.winfo_screenheight()))
 root.title("升學機器人")
 
-path = os.path.join(os.getcwd(),'期末專案/112校系分則.xlsx')
+path = os.path.join(os.getcwd(),'專題/期末專案/專案/112校系分則.xlsx')
 # print(path)
 wb = load_workbook(path)
 ws =  wb['112校系分則v1']
@@ -96,8 +98,6 @@ def det(school,sci,lc):
         if i == 32:
             break
         
- 
-
 def Conversation(conversation):
     if conversation == '國立' or conversation =='公立' or conversation =='私立':
         Gors(conversation)      
