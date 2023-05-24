@@ -7,17 +7,24 @@ from openpyxl import load_workbook
 import os
 
 
-button_pressed = False
+# 创建一个临时的Tkinter窗口
 root = tk.Tk()
+
+# 获取屏幕的宽度和高度
 screen_width = root.winfo_screenwidth()
 screen_height = root.winfo_screenheight()
-print('寬'+str(screen_width))
-print('高'+str(screen_height))
-root.geometry(str(screen_width)+"x"+str(screen_height))
-root.title("升學機器人")
 
-text_width = int(screen_width * 0.8)  # 螢幕寬度的 80%
-text_height = int(screen_height * 0.6)  # 螢幕高度的 60%
+# 关闭临时的Tkinter窗口
+root.destroy()
+
+
+button_pressed = False
+root = tk.Tk()
+
+
+
+root.geometry(str(root.winfo_screenwidth())+"x"+str(root.winfo_screenheight()))
+root.title("升學機器人")
 
 
 path = os.path.join(os.getcwd(), '專題/期末專案/專案/112校系分則.xlsx')
@@ -126,8 +133,9 @@ def Conversation(conversation):
     print(conversation)
 
 
+
 # 輸出螢幕
-text_area = scrolledtext.ScrolledText(root, width=text_width, height=text_height)
+text_area = scrolledtext.ScrolledText(root, width=screen_width, height=screen_height*0.9)
 text_area.tag_config("tag_name", foreground="green")
 text_area.tag_config("tag_title", foreground="red")
 text_area.tag_config("inf", foreground="black")
@@ -150,14 +158,17 @@ def handle_button_press():
     Conversation(t)
 
 
+
 # 對話框
-enter_width = int(screen_width)*0.76
-enter_height = int(screen_height)*0.7
+enter_width = screen_width*0.7
+enter_height = screen_height*0.7
+but_width = enter_width+440
+but_height = screen_height*0.7
 enterwindow = tk.Text(root, width=60, height=15,bd=4,relief='solid')
-enterwindow.place(x=enter_width, y=enter_height)
+enterwindow.place(x=enter_width,y=enter_height)
 enterwindow.configure(bg='floralwhite')
 # 輸入按鈕
 bt = tk.Button(root, text='輸入', width=8, height=4, command=handle_button_press)
-bt.place(x=362, y=692)
+bt.place(x=but_width,y=but_height)
 
 root.mainloop()
