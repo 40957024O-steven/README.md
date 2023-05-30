@@ -27,7 +27,7 @@ root.geometry(str(root.winfo_screenwidth())+"x"+str(root.winfo_screenheight()))
 root.title("升學機器人")
 
 
-path = os.path.join(os.getcwd(),'專題/112校系分則.xlsx')
+path = os.path.join(os.getcwd(),'專題/專題/112校系分則.xlsx')
 # print(path)
 wb = load_workbook(path)
 ws = wb['112校系分則v1']
