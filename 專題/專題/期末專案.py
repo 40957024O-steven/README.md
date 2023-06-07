@@ -2,19 +2,19 @@ import pandas as pd
 import tkinter as tk
 import tkinter.ttk as ttk
 from tkinter import scrolledtext,font
-import time
+# import time
 from openpyxl import load_workbook
 import os
 
 
-# 创建一个临时的Tkinter窗口
+# 創建一个臨時的Tkinter窗口
 root = tk.Tk()
 
-# 获取屏幕的宽度和高度
+# 獲取螢幕的寬度高度
 screen_width = root.winfo_screenwidth()
 screen_height = root.winfo_screenheight()
 
-# 关闭临时的Tkinter窗口
+# 關閉臨時視窗
 root.destroy()
 
 
